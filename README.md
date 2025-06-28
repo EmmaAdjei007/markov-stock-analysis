@@ -13,7 +13,7 @@ This project analyzes stock price movements using Markov chains. It includes dat
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/EmmaAdjei007/stock-markov-analysis.git
+   git clone https://github.com/EmmaAdjei007/markov-stock-analysis.git
 
 ## Dependencies:
 2. ```bash
