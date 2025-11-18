@@ -1,0 +1,145 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Streamlit secrets (CRITICAL - contains API keys)
+.streamlit/secrets.toml
+
+# API Keys and Secrets
+secrets/
+*.key
+*.pem
+credentials.json
+
+# Data files (too large for git)
+data/raw/*.csv
+data/processed/*.csv
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+
+# Keep data directory structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Reports and outputs
+reports/figures/*.png
+reports/figures/*.jpg
+reports/figures/*.pdf
+reports/*.md
+!reports/.gitkeep
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Chat history (may contain sensitive data)
+chat_history.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Distribution
+*.tar.gz
+*.zip
+
+# Documentation and Summary Files (keep only README.md and QUICK_START.md)
+# Root level documentation files to exclude
+PROJECT_TRANSFORMATION_SUMMARY.md
+CLEANUP_SUMMARY.md
+GETTING_STARTED_PERFORMANCE_METRICS.md
+PERFORMANCE_METRICS_MODULE_SUMMARY.md
+BACKTESTING_MODULE_COMPLETE.md
+GITIGNORE_GUIDE.md
+*_SUMMARY.md
+*_README.md
+*_COMPLETE.md
+*_GUIDE.md
+
+# Module-specific documentation (keep only main docs)
+src/core/metrics/README.md
+src/core/metrics/QUICK_REFERENCE.md
+src/core/metrics/BACKTESTING_README.md
+src/core/metrics/IMPLEMENTATION_SUMMARY.md
+
+# Example output files and reports
+reports/performance_examples/
+reports/*.md
+examples/*.json
+examples/*.csv
+examples/*.html
+
+# Claude Code working directory
+.claude/
+
+# Keep important docs (explicitly allow)
+!README.md
+!QUICK_START.md
+!docs/methodology.md
+!docs/*.md

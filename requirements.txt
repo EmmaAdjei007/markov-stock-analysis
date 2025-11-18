@@ -1,0 +1,86 @@
+# =================================================================
+# Stock Markov Analysis - Production Dependencies
+# =================================================================
+
+# Core Scientific Computing
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+scipy>=1.10.0,<2.0.0
+
+# Data Fetching
+yfinance>=0.2.28
+requests>=2.31.0
+
+# Visualization
+matplotlib>=3.7.1,<4.0.0
+seaborn>=0.12.2,<0.14.0
+plotly>=5.15.0,<6.0.0
+altair>=5.0.0,<6.0.0
+tabulate>=0.9.0
+
+# Web Framework
+streamlit>=1.28.0,<2.0.0
+
+# AI/LLM Integration
+groq>=0.4.0  # Recommended: Fast and free tier
+google-generativeai>=0.3.0  # Optional: Gemini
+openai>=1.0.0  # Optional: GPT models
+
+# Configuration Management
+python-dotenv>=1.0.0
+pyyaml>=6.0
+
+# Performance Optimization (Optional but Recommended)
+numba>=0.57.0  # JIT compilation for faster simulations
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Code Quality (Development)
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Jupyter Notebooks (Optional)
+jupyter>=1.0.0
+ipykernel>=6.25.0
+notebook>=7.0.0
+
+# Database (Optional for future features)
+sqlalchemy>=2.0.0
+
+# API Development (Optional)
+fastapi>=0.100.0
+uvicorn>=0.23.0
+
+# =================================================================
+# Installation Instructions
+# =================================================================
+#
+# Basic installation (minimum requirements):
+#   pip install -r requirements.txt
+#
+# Development installation (includes optional dependencies):
+#   pip install -r requirements.txt && pip install black flake8 mypy
+#
+# Full installation (all features):
+#   pip install -r requirements.txt && pip install jupyter numba fastapi
+#
+# =================================================================
+# Recommended Setup for Best Performance
+# =================================================================
+#
+# 1. Install Numba for 10-100x faster simulations:
+#    pip install numba
+#
+# 2. Set up Groq API for free, fast AI insights:
+#    - Get API key from https://console.groq.com/keys
+#    - Add to .env: GROQ_API_KEY=your_key_here
+#
+# 3. Configure virtual environment:
+#    python -m venv venv
+#    source venv/bin/activate  # On Windows: venv\Scripts\activate
+#    pip install -r requirements.txt
+#
+# =================================================================

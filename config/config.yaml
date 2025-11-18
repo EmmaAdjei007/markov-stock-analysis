@@ -1,0 +1,181 @@
+# Stock Markov Analysis Configuration File
+
+# Application Settings
+app:
+  name: "Stock Markov Analysis"
+  version: "2.0.0"
+  debug: false
+  log_level: "INFO"
+
+# Data Settings
+data:
+  cache_dir: "./data/cache"
+  raw_dir: "./data/raw"
+  processed_dir: "./data/processed"
+  cache_expiry_days: 7
+  max_cache_size_mb: 500
+
+# Markov Model Settings
+markov:
+  default_n_states: 5
+  state_names:
+    3: ["Bearish", "Neutral", "Bullish"]
+    5: ["Very Bearish", "Bearish", "Neutral", "Bullish", "Very Bullish"]
+    7: ["Extreme Bear", "Strong Bear", "Bear", "Neutral", "Bull", "Strong Bull", "Extreme Bull"]
+  smoothing_alpha: 0.001
+  use_log_returns: false
+  higher_order_enabled: true
+  max_order: 3
+
+# Simulation Settings
+simulation:
+  default_n_simulations: 1000
+  default_n_days: 30
+  default_volatility: 0.01
+  max_simulations: 10000
+  seed: 42
+  confidence_levels: [0.95, 0.99]
+  enable_parallel: true
+  n_jobs: -1  # -1 means use all CPU cores
+
+# Backtesting Settings
+backtesting:
+  train_test_split: 0.8
+  walk_forward_window: 90
+  refit_frequency: 30
+  metrics:
+    - "rmse"
+    - "mae"
+    - "hit_rate"
+    - "sharpe_ratio"
+    - "max_drawdown"
+
+# Portfolio Settings
+portfolio:
+  initial_cash: 100000.0
+  min_cash_reserve: 1000.0
+  transaction_fee: 0.0
+  enable_fractional_shares: true
+  rebalance_frequency_days: 7
+
+# Visualization Settings
+visualization:
+  default_theme: "plotly_white"
+  figure_dir: "./reports/figures"
+  dpi: 300
+  figure_format: "png"
+  color_scheme:
+    bullish: "#00C853"
+    bearish: "#FF1744"
+    neutral: "#FFB300"
+    primary: "#1E88E5"
+    secondary: "#7B1FA2"
+  chart_height: 400
+  chart_width: 800
+
+# AI Model Settings
+ai:
+  provider: "groq"  # Options: "groq", "gemini", "openai"
+  groq:
+    model: "mixtral-8x7b-32768"  # Fast and powerful
+    alternative_model: "llama3-70b-8192"  # For complex analysis
+    temperature: 0.7
+    max_tokens: 2048
+    timeout: 30
+  gemini:
+    model: "gemini-1.5-flash"
+    temperature: 0.7
+    max_tokens: 2048
+  openai:
+    model: "gpt-3.5-turbo"
+    temperature: 0.7
+    max_tokens: 2048
+  conversation:
+    max_history: 50
+    enable_memory: true
+    enable_rag: false
+
+# API Settings
+api:
+  enable_rest_api: false
+  host: "0.0.0.0"
+  port: 8000
+  rate_limit:
+    enabled: true
+    max_calls_per_minute: 60
+  cors:
+    enabled: true
+    origins: ["*"]
+
+# Dashboard Settings
+dashboard:
+  page_title: "Stock Markov Analysis"
+  page_icon: "📈"
+  layout: "wide"
+  initial_sidebar_state: "expanded"
+  enable_voice: true
+  enable_dark_theme: true
+  refresh_interval_seconds: 300
+
+# Financial Calculators
+calculators:
+  compound_interest:
+    default_rate: 0.07
+    default_years: 10
+  position_sizing:
+    max_risk_per_trade: 0.02
+  kelly_criterion:
+    max_kelly_fraction: 0.25  # Never use more than 25% Kelly
+  risk_reward:
+    min_ratio: 2.0  # Minimum 2:1 risk/reward
+
+# Database Settings (for future use)
+database:
+  enabled: false
+  type: "sqlite"
+  path: "./stock_markov.db"
+  pool_size: 5
+  echo: false
+
+# Logging Settings
+logging:
+  version: 1
+  disable_existing_loggers: false
+  formatters:
+    standard:
+      format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    detailed:
+      format: '%(asctime)s - %(name)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s'
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: INFO
+      formatter: standard
+      stream: ext://sys.stdout
+    file:
+      class: logging.handlers.RotatingFileHandler
+      level: DEBUG
+      formatter: detailed
+      filename: ./logs/app.log
+      maxBytes: 10485760  # 10MB
+      backupCount: 5
+  root:
+    level: INFO
+    handlers: [console, file]
+
+# Alert Settings
+alerts:
+  enabled: false
+  check_interval_seconds: 300
+  notification_methods: ["email", "console"]
+  email:
+    smtp_server: ""
+    smtp_port: 587
+    sender: ""
+    recipients: []
+
+# Performance Metrics
+metrics:
+  enable_profiling: false
+  enable_monitoring: false
+  track_memory_usage: false
